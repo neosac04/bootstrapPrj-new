@@ -1,0 +1,42 @@
+/* Custom styles go here */
+body {
+    /* font-family: Arial, sans-serif; */
+    /* background-color: #eee; */
+    font-family: 'Times New Roman', Times, serif;
+    background-color: beige;
+}
+h1 {
+    color: #333;
+}
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Dark mode styles for elements */
+.navbar.light-mode {
+    background-color: #f8f9fa;
+}
+.navbar.dark-mode {
+    background-color: #343a40;
+}
+
+.card-img-top {
+    height: 200px; /* Consistent height for all images */
+    width: 100%; /* Makes sure the image spans the full width */
+    object-fit: contain; /* Ensures the entire image is visible without cropping */
+    background-color: #f8f9fa; /* Optional: Adds a background color for empty spaces */
+}
+.card {
+    min-height: 300px; /* Adjust this value based on your card content */
+    margin-bottom: 20px; /* Adds space between vertical cards */
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures content is spaced evenly */
+}
+
+
+
+
