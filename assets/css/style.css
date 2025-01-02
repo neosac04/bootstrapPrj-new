@@ -1,13 +1,13 @@
 /* Custom styles go here */
 body {
-    /* font-family: Arial, sans-serif; */
-    /* background-color: #eee; */
     font-family: 'Times New Roman', Times, serif;
     background-color: beige;
 }
+
 h1 {
     color: #333;
 }
+
 body.dark-mode {
     background-color: #121212;
     color: #ffffff;
@@ -17,6 +17,7 @@ body.dark-mode {
 .navbar.light-mode {
     background-color: #f8f9fa;
 }
+
 .navbar.dark-mode {
     background-color: #343a40;
 }
@@ -27,10 +28,12 @@ body.dark-mode {
     object-fit: contain; /* Ensures the entire image is visible without cropping */
     background-color: #f8f9fa; /* Optional: Adds a background color for empty spaces */
 }
+
 .card {
     min-height: 300px; /* Adjust this value based on your card content */
     margin-bottom: 20px; /* Adds space between vertical cards */
 }
+
 .card-body {
     display: flex;
     flex-direction: column;
