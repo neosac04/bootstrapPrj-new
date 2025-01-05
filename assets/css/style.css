@@ -1,11 +1,9 @@
-/* Custom styles go here */
+/* Dark mode styles to be added to style.css */
 body {
     font-family: 'Times New Roman', Times, serif;
     background-color: beige;
-}
-
-h1 {
     color: #333;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-mode {
@@ -13,33 +11,87 @@ body.dark-mode {
     color: #ffffff;
 }
 
-/* Dark mode styles for elements */
-.navbar.light-mode {
-    background-color: #f8f9fa;
-}
-
-.navbar.dark-mode {
-    background-color: #343a40;
-}
-
-.card-img-top {
-    height: 200px; /* Consistent height for all images */
-    width: 100%; /* Makes sure the image spans the full width */
-    object-fit: contain; /* Ensures the entire image is visible without cropping */
-    background-color: #f8f9fa; /* Optional: Adds a background color for empty spaces */
-}
-
+/* Card styles */
 .card {
-    min-height: 300px; /* Adjust this value based on your card content */
-    margin-bottom: 20px; /* Adds space between vertical cards */
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Ensures content is spaced evenly */
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #ffffff;
 }
 
+/* Form controls */
+.form-control {
+    border-radius: 30px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #ff5722;
+    background-color: #ffffff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
 
+body.dark-mode .form-control {
+    background-color: #333333;
+    color: #ffffff;
+    border-color: #ff5722;
+}
 
+/* Navbar styles */
+body.dark-mode .navbar {
+    background-color: #1e1e1e !important;
+}
 
+body.dark-mode .navbar-light .navbar-brand,
+body.dark-mode .navbar-light .navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+/* Review card specific */
+.review-card {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .review-card {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+/* Menu specific */
+body.dark-mode .search-container {
+    background-color: #121212;
+}
+
+body.dark-mode .category-header {
+    color: #ff5722;
+}
+
+/* Footer specific */
+body.dark-mode .bg-light {
+    background-color: #1e1e1e !important;
+    color: #ffffff;
+}
+
+body.dark-mode footer a {
+    color: #ff5722;
+}
+
+/* Badge and button visibility */
+body.dark-mode .badge {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .btn-outline-secondary {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+    background-color: #333333;
+}
