@@ -108,7 +108,7 @@
                             0
                         </span>
                     </a>
-                    <a href="account.html" class="me-3 position-relative">
+                    <a href="#" class="me-3 position-relative profile-icon">
                         <img src="assets/icons/user-account-profile.webp" alt="Profile" width="24" height="24">
                     </a>
                     <div class="form-check form-switch">
@@ -120,21 +120,24 @@
         </div>
     </nav>
 
-    <div class="container d-flex justify-content-center align-items-center mt-5" style="min-height: 80vh;">
-        <div class="card shadow-lg p-4 rounded" style="max-width: 400px; width: 100%;">
-            <h2 class="text-center mb-4">Login</h2>
-            <form id="login-form">
-                <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Username" required id="username">
-                </div>
-                <div class="mb-3">
-                    <input type="password" class="form-control" placeholder="Password" required id="password">
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Login</button>
-            </form>
-            <div class="greeting-message" id="greeting-message">
-                <h4>Welcome, <span id="user-name"></span>!</h4>
+    <div class="card shadow-lg p-4 rounded" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-4">Login</h2>
+        <!-- Add this div for error messages -->
+        <div id="login-error" class="alert alert-danger" style="display: none;"></div>
+        <form id="login-form">
+            <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Email" required id="email">
             </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Password" required id="password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <div id="profile-section" style="display: none;">
+            <h2 class="text-center mb-4">Your Profile</h2>
+            <div id="user-details"></div>
+            <div id="order-history" class="mt-4"></div>
+            <button class="btn btn-danger w-100 mt-3" id="logout-btn">Logout</button>
         </div>
     </div>
 
@@ -175,5 +178,6 @@
             }
         });
     </script>
+    <script src="assets/js/userProfile.js"></script>
 </body>
 </html>
