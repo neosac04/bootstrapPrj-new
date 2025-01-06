@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <meta name="description" content="Explore our diverse menu featuring appetizers, main courses, and desserts. Fresh ingredients and amazing flavors await you.">
+    <title>Menu - Restaurant Name</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .card {
+            transition: transform 0.2s;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .search-container {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            padding: 1rem 0;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .dietary-badge {
+            margin-right: 5px;
+        }
+
+        #menuSearch {
+            border-radius: 20px;
+            padding: 10px 20px;
+        }
+
+        .category-header {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ff5722;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -16,24 +65,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="menu.html" aria-current="page">Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="account.html">Account</a></li>
                     <li class="nav-item"><a class="nav-link" href="reservation.html">Reservation</a></li>
                     <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
                 </ul>
-                <!-- Cart Icon, Profile Icon and Dark Mode Switch on the right -->
                 <div class="d-flex ms-auto align-items-center">
                     <a href="cart.html" class="me-3 position-relative">
-                        <img src="assets/icons/cart-shopping-solid.svg" alt="Cart" width="24" height="24">
+                        <img src="assets/icons/cart-shopping-solid.svg" alt="Shopping Cart" width="24" height="24">
                         <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             0
                         </span>
                     </a>
-                    <a href="account.html" class="me-3 position-relative">
-                        <img src="assets/icons/user-account-profile.webp" alt="Profile" width="24" height="24">
+                    <a href="account.html" class="me-3">
+                        <img src="assets/icons/user-account-profile.webp" alt="User Profile" width="24" height="24">
                     </a>
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="darkModeToggle">
+                        <input class="form-check-input" type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode">
                         <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
                     </div>
                 </div>
@@ -42,159 +90,251 @@
     </nav>
     
     <div class="container mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-lg-7">
-                    <h1>Our Menu</h1>
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <img src="assets/images/calamari.webp" alt="A Fried Calamari" class="card-img-top">
-                                <div class="card-body">
-                                    <h2 class="card-title">Fried Calamari <span class="badge bg-primary">New</span></h2>
-                                    <p class="card-text">Squid, buttermilk.</p>
-                                    <!-- Add button -->
-                                    <button class="btn btn-outline-primary add-to-cart">Add</button>
-                                </div>
-                            </div>
-                        </div>
+        <div class="search-container">
+            <input type="search" 
+                   class="form-control" 
+                   id="menuSearch" 
+                   placeholder="Search menu items..."
+                   aria-label="Search menu">
+            
+            <div class="mt-3">
+                <button class="btn btn-outline-secondary btn-sm me-2" data-filter="vegetarian">
+                    Vegetarian
+                </button>
+                <button class="btn btn-outline-secondary btn-sm me-2" data-filter="spicy">
+                    Spicy
+                </button>
+                <button class="btn btn-outline-secondary btn-sm" data-filter="all">
+                    Show All
+                </button>
+            </div>
+        </div>
 
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <img src="assets/images/falafel.webp" alt="A Falafel" class="card-img-top">
-                                <div class="card-body">
-                                    <h2 class="card-title">Falafel Wrap</h2>
-                                    <p class="card-text">Chickpea, herbs and spices.</p>
-                                    <!-- Add button -->
-                                    <button class="btn btn-outline-primary add-to-cart">Add</button>
-                                </div>
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <!-- Appetizers Section -->
+                <h2 class="category-header">Appetizers</h2>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6">
+                        <div class="card h-100">
+                            <img src="assets/images/calamari.webp" 
+                                 alt="Crispy fried calamari rings served with marinara sauce" 
+                                 class="card-img-top"
+                                 loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Fried Calamari <span class="badge bg-primary">New</span></h3>
+                                <p class="card-text">Tender squid rings in seasoned buttermilk batter, served with zesty marinara sauce.</p>
+                                <p class="text-primary fw-bold">$14.00</p>
+                                <button class="btn btn-outline-primary add-to-cart" 
+                                        data-item="Fried Calamari" 
+                                        data-price="14.00"
+                                        aria-label="Add Fried Calamari to cart">
+                                    Add to Cart
+                                </button>
                             </div>
                         </div>
-
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <img src="assets/images/salad.jpg" alt="A Pasta Salad" class="card-img-top">
-                                <div class="card-body">
-                                    <h2 class="card-title">Pasta Salad</h2>
-                                    <p class="card-text">Lettuce, vegetables and mozzarella</p>
-                                    <!-- Add button -->
-                                    <button class="btn btn-outline-primary add-to-cart">Add</button>
-                                </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card h-100">
+                            <img src="assets/images/falafel.webp" 
+                                 alt="Fresh falafel with hummus and pita bread" 
+                                 class="card-img-top"
+                                 loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Falafel Plate 
+                                    <span class="badge bg-success dietary-badge">Vegetarian</span>
+                                </h3>
+                                <p class="card-text">Crispy chickpea fritters seasoned with herbs and spices, served with hummus and pita.</p>
+                                <p class="text-primary fw-bold">$10.00</p>
+                                <button class="btn btn-outline-primary add-to-cart" 
+                                        data-item="Falafel Plate" 
+                                        data-price="10.00"
+                                        aria-label="Add Falafel Plate to cart">
+                                    Add to Cart
+                                </button>
                             </div>
                         </div>
-                        
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <img src="assets/images/cheeseburger.jpg" alt="A Cheeseburger" class="card-img-top">
-                                <div class="card-body">
-                                    <h2 class="card-title">Cheeseburger</h2>
-                                    <p class="card-text">Beef patty, cheddar cheese, lettuce, and tomato.</p>
-                                    <!-- Add button -->
-                                    <button class="btn btn-outline-primary add-to-cart">Add</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <img src="assets/images/spaghetti.jpeg" alt="Spaghetti Bolognese" class="card-img-top">
-                                <div class="card-body">
-                                    <h2 class="card-title">Spaghetti Bolognese</h2>
-                                    <p class="card-text">Pasta with tomato, beef, and herb sauce.</p>
-                                    <!-- Add button -->
-                                    <button class="btn btn-outline-primary add-to-cart">Add</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <img src="assets/images/sushi.webp" alt="Sushi Rolls" class="card-img-top">
-                                <div class="card-body">
-                                    <h2 class="card-title">Sushi Rolls</h2>
-                                    <p class="card-text">Salmon, avocado, and rice rolls.</p>
-                                    <!-- Add button -->
-                                    <button class="btn btn-outline-primary add-to-cart">Add</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <img src="assets/images/tacos.jpg" alt="Tacos" class="card-img-top">
-                                <div class="card-body">
-                                    <h2 class="card-title">Mexican Wrap</h2>
-                                    <p class="card-text">Ground beef, lettuce, cheese, and salsa in a crispy shell.</p>
-                                    <!-- Add button -->
-                                    <button class="btn btn-outline-primary add-to-cart">Add</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-6">
-                            <div class="card">
-                                <img src="assets/images/grilled_chicken.jpg" alt="Grilled Chicken" class="card-img-top">
-                                <div class="card-body">
-                                    <h2 class="card-title">Grilled Chicken</h2>
-                                    <p class="card-text">Juicy grilled chicken breast served with seasonal vegetables.</p>
-                                    <!-- Add button -->
-                                    <button class="btn btn-outline-primary add-to-cart">Add</button>
-                                </div>
-                            </div>
-                        </div>                        
-                    </div> 
+                    </div>
                 </div>
-                <div class="col-12 col-lg-5">
-                    <h1>Prices</h1>
-                    <table class="table">
-                        <tr>
-                            <td>Fried Calamari</td>
-                            <td>$14.00</td>
-                        </tr>
-                        <tr>
-                            <td>Falafel Wrap</td>
-                            <td>$10.00</td>
-                        </tr>
-                        <tr>
-                            <td>Pasta Salad</td>
-                            <td>$12.00</td>
-                        </tr>
-                        <tr>
-                            <td>Cheeseburger</td>
-                            <td>$13.00</td>
-                        </tr>
-                        <tr>
-                            <td>Spaghetti Bolognese</td>
-                            <td>$15.00</td>
-                        </tr>
-                        <tr>
-                            <td>Sushi Rolls</td>
-                            <td>$20.00</td>
-                        </tr>
-                        <tr>
-                            <td>Mexican Wrap</td>
-                            <td>$11.00</td>
-                        </tr>
-                        <tr>
-                            <td>Grilled Chicken</td>
-                            <td>$17.00</td>
-                        </tr>
-                    </table>                    
-                    <div class="alert alert-info" role="alert">
-                        Try our new Fried Calamari
-                    </div>                    
+
+                <!-- Main Course Section -->
+                <h2 class="category-header">Main Courses</h2>
+                <div class="row g-4">
+                    <!-- Existing menu items converted to this new format -->
+                    <div class="col-12 col-md-6">
+                        <div class="card h-100">
+                            <img src="assets/images/spaghetti.jpeg" 
+                                 alt="Homemade spaghetti bolognese with fresh herbs" 
+                                 class="card-img-top"
+                                 loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Spaghetti Bolognese</h3>
+                                <p class="card-text">Al dente pasta in rich tomato and beef sauce, topped with fresh basil and parmesan.</p>
+                                <p class="text-primary fw-bold">$15.00</p>
+                                <button class="btn btn-outline-primary add-to-cart" 
+                                        data-item="Spaghetti Bolognese" 
+                                        data-price="15.00"
+                                        aria-label="Add Spaghetti Bolognese to cart">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add other main course items similarly -->
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <div class="card sticky-top" style="top: 20px;">
+                    <div class="card-body">
+                        <h2 class="h4">Your Order</h2>
+                        <div id="cart-items">
+                            <!-- Cart items will be dynamically added here -->
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <span>Total:</span>
+                            <span id="cart-total" class="fw-bold">$0.00</span>
+                        </div>
+                        <button class="btn btn-primary w-100 mt-3" id="checkout-btn">Proceed to Checkout</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <button id="backToTop" class="btn btn-primary back-to-top" aria-label="Back to top">
+        ↑
+    </button>
+
+    <footer class="mt-5 py-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Hours</h5>
+                    <p>Mon-Fri: 11am - 10pm<br>
+                       Sat-Sun: 10am - 11pm</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact</h5>
+                    <p>123 Restaurant St<br>
+                       City, State 12345<br>
+                       (555) 123-4567</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="me-3">Facebook</a>
+                    <a href="#" class="me-3">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/menu.js"></script>
     <script>
-        // Dark mode toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+
         darkModeToggle.addEventListener('change', () => {
-            document.body.classList.toggle('dark-mode');
+            if (darkModeToggle.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+            }
         });
-    </script>  
+
+        // Search functionality
+        document.getElementById('menuSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const menuItems = document.querySelectorAll('.card');
+            
+            menuItems.forEach(item => {
+                const title = item.querySelector('.card-title').textContent.toLowerCase();
+                const description = item.querySelector('.card-text').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    item.closest('.col-12').style.display = '';
+                } else {
+                    item.closest('.col-12').style.display = 'none';
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Cart functionality
+        let cartItems = [];
+        
+        function updateCart() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            
+            cartCount.textContent = cartItems.length;
+            
+            // Update cart items display
+            cartItemsContainer.innerHTML = cartItems.map(item => `
+                <div class="d-flex justify-content-between mb-2">
+                    <span>${item.name}</span>
+                    <span>$${item.price}</span>
+                </div>
+            `).join('');
+            
+            // Update total
+            const total = cartItems.reduce((sum, item) => sum + parseFloat(item.price), 0);
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+            
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+        }
+
+        // Add to cart buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const item = {
+                    name: e.target.dataset.item,
+                    price: e.target.dataset.price
+                };
+                cartItems.push(item);
+                updateCart();
+                
+                // Show feedback
+                button.textContent = 'Added!';
+                setTimeout(() => {
+                    button.textContent = 'Add to Cart';
+                }, 1000);
+            });
+        });
+
+        // Load cart from localStorage on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                cartItems = JSON.parse(savedCart);
+                updateCart();
+            }
+        });
+    </script>
 </body>
 </html>
