@@ -54,6 +54,17 @@
             padding-bottom: 0.5rem;
             border-bottom: 2px solid #ff5722;
         }
+
+        /* Dark mode search bar styles */
+        .dark-mode #menuSearch {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            border-color: #404040;
+        }
+        
+        .dark-mode #menuSearch::placeholder {
+            color: #cccccc;
+        }
     </style>
 </head>
 <body>
@@ -156,12 +167,33 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card h-100">
+                            <img src="assets/images/springroll.jpeg" 
+                                 alt="Fresh vegetable spring rolls with dipping sauce" 
+                                 class="card-img-top"
+                                 loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title h5">
+                                    Spring Rolls
+                                    <span class="badge bg-success dietary-badge">Vegetarian</span>
+                                </h3>
+                                <p class="card-text">Rice paper rolls filled with fresh vegetables and herbs, served with peanut dipping sauce.</p>
+                                <p class="text-primary fw-bold">$9.00</p>
+                                <button class="btn btn-outline-primary add-to-cart" 
+                                        data-item="Spring Rolls" 
+                                        data-price="9.00"
+                                        aria-label="Add Spring Rolls to cart">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Main Course Section -->
                 <h2 class="category-header">Main Courses</h2>
                 <div class="row g-4">
-                    <!-- Existing menu items converted to this new format -->
                     <div class="col-12 col-md-6">
                         <div class="card h-100">
                             <img src="assets/images/spaghetti.jpeg" 
@@ -181,7 +213,51 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Add other main course items similarly -->
+                    
+                </div>
+
+                <!-- Desserts Section -->
+                <h2 class="category-header">Desserts</h2>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6">
+                        <div class="card h-100">
+                            <img src="assets/images/tiramisu.jpg" 
+                                 alt="Classic tiramisu dessert" 
+                                 class="card-img-top"
+                                 loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Classic Tiramisu</h3>
+                                <p class="card-text">Layers of coffee-soaked ladyfingers and mascarpone cream, dusted with cocoa powder.</p>
+                                <p class="text-primary fw-bold">$8.00</p>
+                                <button class="btn btn-outline-primary add-to-cart" 
+                                        data-item="Classic Tiramisu" 
+                                        data-price="8.00"
+                                        aria-label="Add Classic Tiramisu to cart">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="card h-100">
+                        <img src="assets/images/creme-b.jpg" 
+                             alt="French crème brûlée with caramelized top" 
+                             class="card-img-top"
+                             loading="lazy">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Crème Brûlée</h3>
+                            <p class="card-text">Classic French vanilla custard with a crisp caramelized sugar top.</p>
+                            <p class="text-primary fw-bold">$9.00</p>
+                            <button class="btn btn-outline-primary add-to-cart" 
+                                    data-item="Crème Brûlée" 
+                                    data-price="9.00"
+                                    aria-label="Add Crème Brûlée to cart">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
