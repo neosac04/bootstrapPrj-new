@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
+        /* Original styles remain unchanged */
         .card {
             transition: transform 0.2s;
             height: 100%;
@@ -55,7 +56,6 @@
             border-bottom: 2px solid #ff5722;
         }
 
-        /* Dark mode search bar styles */
         .dark-mode #menuSearch {
             background-color: #2d2d2d;
             color: #ffffff;
@@ -68,6 +68,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigation remains unchanged -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="index.html">Restaurant</a>
@@ -122,6 +123,24 @@
         </div>
 
         <div class="row">
+            <!-- Cart moved to top -->
+            <div class="col-12 col-lg-4">
+                <div class="card sticky-top" style="top: 20px;">
+                    <div class="card-body">
+                        <h2 class="h4">Your Order</h2>
+                        <div id="cart-items">
+                            <!-- Cart items will be dynamically added here -->
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <span>Total:</span>
+                            <span id="cart-total" class="fw-bold">$0.00</span>
+                        </div>
+                        <button class="btn btn-primary w-100 mt-3" id="checkout-btn">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-12 col-lg-8">
                 <!-- Appetizers Section -->
                 <h2 class="category-header">Appetizers</h2>
@@ -169,7 +188,7 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="card h-100">
-                            <img src="assets/images/springroll.jpeg" 
+                            <img src="assets/images/springrolls.webp" 
                                  alt="Fresh vegetable spring rolls with dipping sauce" 
                                  class="card-img-top"
                                  loading="lazy">
@@ -213,7 +232,6 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
 
                 <!-- Desserts Section -->
@@ -222,9 +240,9 @@
                     <div class="col-12 col-md-6">
                         <div class="card h-100">
                             <img src="assets/images/tiramisu.jpg" 
-                                 alt="Classic tiramisu dessert" 
-                                 class="card-img-top"
-                                 loading="lazy">
+                                alt="Classic tiramisu dessert" 
+                                class="card-img-top"
+                                loading="lazy">
                             <div class="card-body">
                                 <h3 class="card-title h5">Classic Tiramisu</h3>
                                 <p class="card-text">Layers of coffee-soaked ladyfingers and mascarpone cream, dusted with cocoa powder.</p>
@@ -238,52 +256,36 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <div class="card h-100">
-                        <img src="assets/images/creme-b.jpg" 
-                             alt="French crème brûlée with caramelized top" 
-                             class="card-img-top"
-                             loading="lazy">
-                        <div class="card-body">
-                            <h3 class="card-title h5">Crème Brûlée</h3>
-                            <p class="card-text">Classic French vanilla custard with a crisp caramelized sugar top.</p>
-                            <p class="text-primary fw-bold">$9.00</p>
-                            <button class="btn btn-outline-primary add-to-cart" 
-                                    data-item="Crème Brûlée" 
-                                    data-price="9.00"
-                                    aria-label="Add Crème Brûlée to cart">
-                                Add to Cart
-                            </button>
+                    <div class="col-12 col-md-6">
+                        <div class="card h-100">
+                            <img src="assets/images/creme.jpg" 
+                                alt="French crème brûlée with caramelized top" 
+                                class="card-img-top"
+                                loading="lazy">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Crème Brûlée</h3>
+                                <p class="card-text">Classic French vanilla custard with a crisp caramelized sugar top.</p>
+                                <p class="text-primary fw-bold">$9.00</p>
+                                <button class="btn btn-outline-primary add-to-cart" 
+                                        data-item="Crème Brûlée" 
+                                        data-price="9.00"
+                                        aria-label="Add Crème Brûlée to cart">
+                                    Add to Cart
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-4">
-                <div class="card sticky-top" style="top: 20px;">
-                    <div class="card-body">
-                        <h2 class="h4">Your Order</h2>
-                        <div id="cart-items">
-                            <!-- Cart items will be dynamically added here -->
-                        </div>
-                        <hr>
-                        <div class="d-flex justify-content-between">
-                            <span>Total:</span>
-                            <span id="cart-total" class="fw-bold">$0.00</span>
-                        </div>
-                        <button class="btn btn-primary w-100 mt-3" id="checkout-btn">Proceed to Checkout</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Back to top button -->
     <button id="backToTop" class="btn btn-primary back-to-top" aria-label="Back to top">
         ↑
     </button>
 
+    <!-- Footer remains unchanged -->
     <footer class="mt-5 py-4 bg-light">
         <div class="container">
             <div class="row">
@@ -380,9 +382,6 @@
             // Update total
             const total = cartItems.reduce((sum, item) => sum + parseFloat(item.price), 0);
             cartTotal.textContent = `$${total.toFixed(2)}`;
-            
-            // Save to localStorage
-            localStorage.setItem('cart', JSON.stringify(cartItems));
         }
 
         // Add to cart buttons
@@ -403,14 +402,8 @@
             });
         });
 
-        // Load cart from localStorage on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedCart = localStorage.getItem('cart');
-            if (savedCart) {
-                cartItems = JSON.parse(savedCart);
-                updateCart();
-            }
-        });
+        // Initialize empty cart
+        updateCart();
     </script>
     <script src="assets/js/userProfile.js"></script>
 </body>
