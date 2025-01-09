@@ -58,6 +58,10 @@
             color: #4caf50;
         }
 
+        .min-vh-75 {
+            min-height: 75vh;
+        }
+
         /* Responsive styling */
         @media (max-width: 768px) {
             .card {
@@ -120,24 +124,26 @@
         </div>
     </nav>
 
-    <div class="card shadow-lg p-4 rounded" style="max-width: 400px; width: 100%;">
-        <h2 class="text-center mb-4">Login</h2>
-        <!-- Add this div for error messages -->
-        <div id="login-error" class="alert alert-danger" style="display: none;"></div>
-        <form id="login-form">
-            <div class="mb-3">
-                <input type="email" class="form-control" placeholder="Email" required id="email">
+    <div class="container d-flex justify-content-center align-items-center min-vh-75 mt-5">
+        <div class="card shadow-lg p-4 rounded" style="max-width: 500px; width: 100%;">
+            <h2 class="text-center mb-4">Login</h2>
+            <!-- Add this div for error messages -->
+            <div id="login-error" class="alert alert-danger" style="display: none;"></div>
+            <form id="login-form">
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Email" required id="email">
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Password" required id="password">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+            <div id="profile-section" style="display: none;">
+                <h2 class="text-center mb-4">Your Profile</h2>
+                <div id="user-details"></div>
+                <div id="order-history" class="mt-4"></div>
+                <button class="btn btn-danger w-100 mt-3" id="logout-btn">Logout</button>
             </div>
-            <div class="mb-3">
-                <input type="password" class="form-control" placeholder="Password" required id="password">
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Login</button>
-        </form>
-        <div id="profile-section" style="display: none;">
-            <h2 class="text-center mb-4">Your Profile</h2>
-            <div id="user-details"></div>
-            <div id="order-history" class="mt-4"></div>
-            <button class="btn btn-danger w-100 mt-3" id="logout-btn">Logout</button>
         </div>
     </div>
 
@@ -145,7 +151,7 @@
     <script>
         const darkModeToggle = document.getElementById('darkModeToggle');
 
-// Check for saved dark mode preference
+        // Check for saved dark mode preference
         if (localStorage.getItem('darkMode') === 'enabled') {
             document.body.classList.add('dark-mode');
             darkModeToggle.checked = true;
